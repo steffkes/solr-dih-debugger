@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="dataConfig" type="dataConfig" />
+
+    <xs:complexType name="dataConfig">
+
+        <xs:sequence>
+            <xs:element name="dataSource" type="dataSource" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="document" type="document" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:complexType name="dataSource">
+
+        <xs:attribute name="driver" type="xs:string" use="required" />
+        <xs:attribute name="url" type="xs:string" use="required" />
+        <xs:attribute name="user" type="xs:string" use="required" />
+
+        <xs:attribute name="password" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="encoding" type="xs:string" />
+    
+    </xs:complexType>
+
+    <xs:complexType name="document">
+
+        <xs:sequence>
+            <xs:element name="entity" type="entity" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+
+        <xs:attribute name="name" type="xs:string" />
+    
+    </xs:complexType>
+
+    <xs:complexType name="entity">
+
+        <xs:sequence>
+            <xs:element name="field" type="field" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="entity" type="entity" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="query" type="xs:string" use="required" />
+
+        <xs:attribute name="pk" type="xs:string" />
+        <xs:attribute name="deltaQuery" type="xs:string" />
+        <xs:attribute name="parentDeltaQuery" type="xs:string" />
+        <xs:attribute name="dataSource" type="xs:string" />
+    
+    </xs:complexType>
+
+    <xs:complexType name="field">
+
+        <xs:attribute name="column" type="xs:string" use="required" />
+        <xs:attribute name="name" type="xs:string" use="required" />
+    
+    </xs:complexType>
+
+</xs:schema>

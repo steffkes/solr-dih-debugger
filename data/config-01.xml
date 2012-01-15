@@ -1,0 +1,14 @@
+<!-- SOURCE: http://wiki.apache.org/solr/DataImportHandler#Full_Import_Example -->
+<dataConfig
+
+    <dataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/solr-dih-debugger?useUnicode=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8" user="root" />
+
+
+    <document name="products">
+
+        <entity name="item" query="select * from item">
+
+        </entity>
+
+    </document>
+</dataConfig>
