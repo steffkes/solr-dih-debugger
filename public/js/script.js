@@ -98,7 +98,6 @@ $(function()
             }
         )
     
-    /*
     $( '.root' )
         .each
         (
@@ -108,5 +107,4 @@ $(function()
                     .first().trigger( 'click' );
             }
         );
-    //*/
 });
