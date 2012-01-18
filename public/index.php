@@ -67,8 +67,12 @@ class DataSource
 
 		$url_parts = parse_url( $url );
 		$this->_host = $url_parts['host'];
-		$this->_port = (int)$url_parts['port'];
 		$this->_db = substr( $url_parts['path'], 1 );
+
+		if( isset( $url_parts['port'] ) )
+		{
+			$this->_port = (int)$url_parts['port'];
+		}
 
 		$user = (string)$element->attributes()->user;
 		if( 0 !== strlen( $user ) )
@@ -108,7 +112,7 @@ class DataSource
 				'mysql:host=%s;dbname=%s;port=%d',
 				$this->_host,
 				$this->_db,
-				$this->_port
+				$this->_port ?: 3306
 			),
 			$this->_user,
 			$this->_pass,
